@@ -1,24 +1,39 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML com JS</title>
-    <link rel="stylesheet" href="./main.css" />
+    <title>Tarefas Diárias</title>
+    <link rel="icon" href="./imagens/tarefa.png" type="image/x-com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./main.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>COMPARE-ME</h1>
-        <h2>INSIRA SEUS NUMEROS</h2>
-        <form id="form">
-            <input id="campoa" type="number" required placeholder="CAMPO A" />
-            <p class="msgErro"></p>
-            <input id="campob" type="number" required placeholder="CAMPO B" />
-            <p class="msgScss"></p>
-            <button id="submit" type="submit">COMPARE</button>
-        </form>
-    </div>
-<script src="MAIN.JS"></script>
+    <header>
+        <h1>LISTA DE TAREFAS</h1>
+        <button type="button">ADICIONAR</button>
+    </header>
+    <form>
+        <h2>Nova Tarefa</h2>
+        <input type="text" id="nova-tarefa" required placeholder="Nova Tarefa">
+        <button type="submit">+</button>
+        <button type="reset" id="botao-cancelar">Cancelar</button>
+        <p>Quando concluir a tarefa, clique na mesma para sinalizar.</p>
+        
+    </form>
+    <ul id="lista-tarefas">
+
+    </ul>
+    <footer class="base">
+        &copy; Henry Orion - Desenvolvedor Full Stack Python - 2024
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="./main.js"></script>
 </body>
+
 </html>

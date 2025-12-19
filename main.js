@@ -1,27 +1,32 @@
-const form = document.getElementById("form");
-const mensagemerro = document.querySelector(".msgErro");
-const mensagemsucesso = document.querySelector(".msgScss");
-form.addEventListener("submit", function(e){
-    e.preventDefault();
-    let campoa = document.getElementById("campoa");
-    let campob = document.getElementById("campob");
-    const msgErro = "O campo <b> B </b> deve ser maior que <b>A</b>";
-    const msgSucess = "Parabens, O numero do campo B é maior que do campo A ";
-    if (campoa.value < campob.value){
-        mensagemsucesso.innerHTML = msgSucess;
-        mensagemsucesso.style.display = "block";
-        document.querySelector(".msgErro").style.display = "none";
-        campoa.value = " ";
-        campob.value = " ";
-        
-    } else {
-        mensagemerro.innerHTML = msgErro;
-        mensagemerro.style.display = "block";
-        document.querySelector(".msgScss").style.display = "none";
-        campoa.value = " ";
-        campob.value = " ";
-}})
+$(document).ready(function () {
+    $('header button').click(function () {
+        $('form').slideDown();
+    });
 
+    $('#botao-cancelar').click(function () {
+        $('form').slideUp();
+    });
 
+    $('form').on('submit', function (e) {
+        e.preventDefault();
 
+        const novaTarefa = $('#nova-tarefa').val();
+        if (novaTarefa) {
 
+            if ($('#lista-tarefas').css('display') === 'none') {
+                $('#lista-tarefas').slideDown();
+            }
+
+            const adcTarefa = $('<li style="display: none"></li>').text(novaTarefa);
+
+            $('#lista-tarefas').append(adcTarefa);
+            adcTarefa.slideDown();
+
+            $('#nova-tarefa').val('');
+        }
+    });
+
+    $(document).on('click', '#lista-tarefas li', function () {
+        $(this).toggleClass('riscar');
+    });
+});
