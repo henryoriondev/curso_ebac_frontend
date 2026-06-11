@@ -1,44 +1,37 @@
-// Aplicando máscaras com jQuery Mask
-$('#telefone').mask('(00) 00000-0000', {
-    placeholder: '(DDD) 12345-6789'
-});
+document.addEventListener("DOMContentLoaded", async function () {
+    const nameElement = document.querySelector("#name");
+    const usernameElement = document.querySelector("#username");
+    const avatarElement = document.querySelector("#avatar");
+    const reposElement = document.querySelector("#repos");
+    const followersElement = document.querySelector("#followers");
+    const followingElement = document.querySelector("#following");
+    const linkElement = document.querySelector("#link");
 
-$('#cpf').mask('000.000.000-00', {
-    placeholder: '123.456.789-00'
-});
+    try {
+        const response = await fetch("https://api.github.com/users/henryoriondev");
 
-$('#cep').mask('00000-000', {
-    placeholder: '01234-567'
-});
+        if (!response.ok) {
+            throw new Error("Não foi possível carregar os dados do GitHub.");
+        }
 
-// Validação com jQuery Validate
-$('form').validate({
-    rules: {
-        nome: {
-            required: true
-        },
-        email: {
-            required: true,
-            email: true
-        },
-        telefone: {
-            required: true
-        },
-        endereco: {
-            required: true
-        },
-        cep: {
-            required: true
-        },
-        cpf: {
-            required: true
-        },
-    },
-    submitHandler: function (form) {
-        alert("Sua requisição foi enviada para análise, parabéns pela aquisição!");
-        form.reset();
-    },
-    invalidHandler: function (form, validator) {
-        alert("Por favor, preencha os campos para prosseguir com a compra!");
+        const data = await response.json();
+
+        nameElement.innerText = data.name || "Nome não informado";
+        usernameElement.innerText = `@${data.login}`;
+        avatarElement.src = data.avatar_url;
+        reposElement.innerText = data.public_repos;
+        followersElement.innerText = data.followers;
+        followingElement.innerText = data.following;
+        linkElement.href = data.html_url;
+    } catch (error) {
+        console.error(error);
+
+        nameElement.innerText = "Erro ao carregar dados";
+        usernameElement.innerText = "@erro";
+        reposElement.innerText = "0";
+        followersElement.innerText = "0";
+        followingElement.innerText = "0";
+
+        alert("Não foi possível carregar os dados do GitHub.");
     }
 });
