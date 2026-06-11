@@ -1,76 +1,92 @@
-# GitHub Profile Viewer - AJAX
+# Exercício - Orientação a Objetos com JavaScript
 
 ## Descrição
 
-Este projeto foi desenvolvido como atividade prática do módulo **Ajax e Exceções** do curso **Profissão Engenheiro Front-End** da EBAC.
+Este projeto foi desenvolvido como atividade prática do **Módulo 24 - Orientação a Objetos com JavaScript** do curso **Profissão Engenheiro Front-End** da EBAC.
 
-A aplicação consome dados da API pública do GitHub e exibe informações de um usuário de forma dinâmica, utilizando requisições AJAX com a Fetch API.
+O objetivo do exercício é aplicar os principais conceitos da Programação Orientada a Objetos (POO) utilizando JavaScript, incluindo abstração, herança, encapsulamento e polimorfismo.
 
-## Objetivo
+## Objetivos do Exercício
 
-Adaptar o projeto base fornecido pela EBAC para que os dados fossem carregados através de uma requisição assíncrona, substituindo os valores estáticos existentes na página.
+* Criar uma classe de abstração;
+* Criar pelo menos duas classes herdeiras;
+* Criar pelo menos três instâncias de objetos;
+* Aplicar conceitos de encapsulamento;
+* Demonstrar o uso de herança;
+* Demonstrar o uso de polimorfismo;
+* Armazenar o código em uma branch específica do repositório.
 
-## Funcionalidades
+## Estrutura Implementada
 
-* Consumo da API pública do GitHub
-* Exibição dinâmica do avatar do usuário
-* Exibição do nome do perfil
-* Exibição do nome de usuário
-* Exibição da quantidade de repositórios públicos
-* Exibição da quantidade de seguidores
-* Exibição da quantidade de usuários seguidos
-* Link direto para o perfil do GitHub
-* Tratamento de erros utilizando try/catch
+### Classe Base
 
-## Tecnologias Utilizadas
+Foi criada a classe:
 
-* HTML5
-* CSS3
-* JavaScript
-* Fetch API
-* Git
-* GitHub
+```text
+Funcionario
+```
+
+Esta classe representa a abstração de um funcionário de uma empresa.
+
+### Classes Herdeiras
+
+Foram criadas duas subclasses:
+
+```text
+Desenvolvedor
+Designer
+```
+
+Ambas herdam atributos e métodos da classe `Funcionario`.
+
+### Instâncias Criadas
+
+```text
+dev1
+dev2
+designer1
+```
+
+As instâncias representam diferentes profissionais dentro da organização.
 
 ## Conceitos Aplicados
 
-### AJAX
+### Abstração
 
-A aplicação utiliza AJAX para realizar requisições assíncronas à API do GitHub sem necessidade de recarregar a página.
+A classe `Funcionario` foi utilizada para representar características comuns a todos os funcionários.
 
-### Fetch API
+### Herança
 
-A comunicação com a API é realizada através da função `fetch()`, responsável por solicitar os dados do usuário.
+As classes `Desenvolvedor` e `Designer` herdam atributos e comportamentos da classe `Funcionario`.
 
-### Tratamento de Exceções
+### Encapsulamento
 
-Foi implementado tratamento de erros utilizando `try/catch`, garantindo que falhas na requisição sejam tratadas adequadamente e não interrompam a execução da aplicação.
+O atributo salário foi implementado utilizando atributos privados:
 
-## API Utilizada
-
-GitHub REST API
-
-Exemplo de endpoint utilizado:
-
-```text
-https://api.github.com/users/henryoriondev
+```javascript
+#salario
 ```
 
-## Estrutura do Projeto
+O acesso é realizado através de métodos getters e setters.
 
-```text
-.
-├── css
-│   └── main.css
-│
-├── js
-│   └── main.js
-│
-├── imagens
-│
-├── index.html
-│
-└── README.md
+### Polimorfismo
+
+O método:
+
+```javascript
+trabalhar()
 ```
+
+foi sobrescrito nas subclasses para apresentar comportamentos específicos para cada tipo de funcionário.
+
+## Tecnologias Utilizadas
+
+* JavaScript ES6+
+* Classes
+* Herança
+* Encapsulamento
+* Polimorfismo
+* Node.js
 
 ## Como Executar
 
@@ -80,15 +96,34 @@ Clone o repositório:
 git clone https://github.com/henryoriondev/curso_ebac_frontend
 ```
 
-Abra o arquivo `index.html` em um navegador ou utilize uma extensão como Live Server no Visual Studio Code.
+Acesse a pasta do projeto:
+
+
+Execute o arquivo:
+
+```bash
+node oo.js
+```
+
+## Estrutura do Projeto
+
+```text
+.
+├── oo.js
+└── README.md
+```
 
 ## Branch do Exercício
 
-O desenvolvimento solicitado pela atividade foi realizado na branch:
+O desenvolvimento deste exercício foi realizado na branch:
 
 ```text
-exercicio_ajax
+oo_js
 ```
+
+## Resultado Esperado
+
+Ao executar o programa, serão exibidas informações dos funcionários cadastrados, demonstrando o funcionamento da herança, encapsulamento e polimorfismo.
 
 ## Autor
 
